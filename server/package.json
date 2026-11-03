@@ -1,0 +1,15 @@
+{
+  "name": "vscode-debug-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server (stdio) exposing VSCode debugger control to an agent; proxies to the vscode-debug-mcp-ctl extension over loopback HTTP.",
+  "license": "MIT",
+  "bin": {
+    "vscode-debug-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

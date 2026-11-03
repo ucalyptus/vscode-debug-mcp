@@ -1,0 +1,45 @@
+{
+  "name": "vscode-debug-mcp-ctl",
+  "displayName": "VSCode Debug MCP Control",
+  "description": "Loopback control API + MCP bridge to restart/start/stop VSCode debug sessions programmatically.",
+  "version": "0.1.0",
+  "publisher": "ucalyptus",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      { "command": "debugctl.listSessions", "title": "DebugCTL: List Sessions" },
+      { "command": "debugctl.restart", "title": "DebugCTL: Restart Active Session" },
+      { "command": "debugctl.start", "title": "DebugCTL: Start Debugging" },
+      { "command": "debugctl.stop", "title": "DebugCTL: Stop Session" },
+      { "command": "debugctl.customRequest", "title": "DebugCTL: Send DAP Request" },
+      { "command": "debugctl.runCommand", "title": "DebugCTL: Run Workbench Command" }
+    ],
+    "configuration": {
+      "title": "DebugCTL",
+      "properties": {
+        "debugctl.port": {
+          "type": "number",
+          "default": 8787,
+          "description": "Loopback TCP port for the control API. Only ever bound to 127.0.0.1."
+        },
+        "debugctl.token": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Optional shared secret required via the `x-debugctl-token` header. Strongly recommended when the host has other local users or services."
+        }
+      }
+    }
+  }
+}
